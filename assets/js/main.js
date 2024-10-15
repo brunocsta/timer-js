@@ -25,6 +25,7 @@ zerar.addEventListener("click", function (event) {
 });
 pausar.addEventListener("click", function (event) {
   clearInterval(intervalo);
+  relogio.classList.add("pausado");
 });
 
 let segundos = 0;
