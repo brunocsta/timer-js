@@ -17,11 +17,13 @@ const zerar = document.querySelector(".zerar");
 iniciar.addEventListener("click", function (event) {
   clearInterval(intervalo);
   iniciarCronometro();
+  relogio.classList.remove("pausado");
 });
 zerar.addEventListener("click", function (event) {
   clearInterval(intervalo);
   relogio.innerHTML = "00:00:00";
   segundos = 0;
+  relogio.classList.remove("pausado");
 });
 pausar.addEventListener("click", function (event) {
   clearInterval(intervalo);
