@@ -15,27 +15,26 @@ const pausar = document.querySelector(".pausar");
 const zerar = document.querySelector(".zerar");
 
 iniciar.addEventListener("click", function (event) {
+  clearInterval(intervalo);
   iniciarCronometro();
 });
-zerar.addEventListener("click", function (event) {});
+zerar.addEventListener("click", function (event) {
+  clearInterval(intervalo);
+  relogio.innerHTML = "00:00:00";
+  segundos = 0;
+});
 pausar.addEventListener("click", function (event) {
-  pausarCronometro();
+  clearInterval(intervalo);
 });
 
 let segundos = 0;
-let minutos = 0;
-let hora = 0;
+let intervalo;
 
 //A função construirSegundos permitiu simplificar a função iniciarCronometro, agora uso ela para formatar o cronometro e esta apenas irá iniciar a contagem6
 function iniciarCronometro() {
-  const intervalo = setInterval(() => {
+  intervalo = setInterval(() => {
     segundos++;
     relogio.innerHTML = construirSegundos(segundos);
   }, 1000);
 }
 
-function pausarCronometro() {
-  setTimeout(() => {
-    clearInterval(intervalo);
-  });
-}
